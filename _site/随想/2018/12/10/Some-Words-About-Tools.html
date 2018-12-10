@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title> 程序员的工具 —  &raquo;  无人之境</title>
+<meta name="description" content=""一些scheme，一些c，一些算法，一些想法"
+">
+<meta name="keywords" content="">
+<link rel="canonical" href="http://localhost:4000/%E9%9A%8F%E6%83%B3/2018/12/10/Some-Words-About-Tools.html">
+        
+
+
+
+
+<!-- Twitter Cards -->
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="程序员的工具" />
+<meta name="twitter:description" content=""一些scheme，一些c，一些算法，一些想法"
+" />
+<meta name="twitter:image" content="http://localhost:4000" />
+
+<!-- Google plus -->
+<meta name="author" content="">
+<link rel="author" href="">
+
+<!-- Open Graph -->
+<meta property="og:locale" content="">
+<meta property="og:type" content="article">
+<meta property="og:title" content="程序员的工具">
+<meta property="og:description" content=""一些scheme，一些c，一些算法，一些想法"
+">
+<meta property="og:url" content="http://localhost:4000/%E9%9A%8F%E6%83%B3/2018/12/10/Some-Words-About-Tools.html">
+<meta property="og:site_name" content="无人之境">
+
+        <link href='https://fonts.googleapis.com/css?family=Inconsolata:400,700' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="/assets/vendor/normalize-css/normalize.css">
+<link rel="stylesheet" href="/css/main.css">
+
+  <link rel="stylesheet" href="/assets/vendor/highlight/styles/solarized_dark.css">
+
+<link rel="stylesheet" href="/assets/vendor/font-awesome/css/font-awesome.css">
+
+    </head>
+
+    <body>
+        <div class="wrapper">
+            <header class="header">
+    <div class="navigation">
+        <a href="/" class="logo">无人之境</a>
+
+        <ul class="menu">
+            <li class="menu__entry"><a href="/about">About</a></li>
+            <li class="menu__entry"><a href="/">Blog</a></li>
+        </ul>
+    </div>
+
+    <ul class="social-links">
+        
+
+        
+    </ul>
+</header>
+
+            <h1 class="page-title post-title">
+    <div class="page-title__text post-title__text">程序员的工具</div>
+    <div class="page-title__subtitle post-title__subtitle"></div>
+</h1>
+
+<div class="content">
+    <p>前几天做了一个小程序，可以离线网页及其子页面。在程序中需要一个检索URL的功能，我选择了使用正则表达式，结果这就成了问题的开始。</p>
+
+<p>正则表达式是怎样的东西？如下：</p>
+
+<p><code class="highlighter-rouge">(https?|ftp|file)://[-A-Za-z0-9+&amp;@#/%?=~_|!:,.;]+[-A-Za-z0-9+&amp;@#/%=~_|]</code></p>
+
+<p>不用试图去理解了，这个东西可读性极低，就算是写出这团怪物的人也得花点心思去理解自己过去想要做什么。</p>
+
+<p>就是因为一开始执着于使用正则表达式，我怎么都无法完美地匹配到自己想要的字符串，总会有一些不想要的奇奇怪怪的字符串溜进来，把程序搞得一团糟。最后我放弃了正则表达式，自己写了个判断字符串的函数，程序一下子就正常运行了。</p>
+
+<p>当然了，可能会有人说，这完全是因为我不会用正则表达式，在会用的人手里正则表达式工作得很好。在程序刚刚被写出来的时候，的确如此，但几个月甚至几年以后呢？当环境改变，需要修改这个表达式的时候，估计负修改的程序员会感到”A pain in the ass”。因为这东西可读性太低了！程序不是一次性的，是需要维护的。站在这个角度，正则表达式是一个很糟糕的工具。有一句话说得很好：</p>
+
+<blockquote>
+  <p>Some people, when confronted with a problem, think “I know, I’ll use regular expressions.” Now they have two problems.</p>
+</blockquote>
+
+<p>设计糟糕的工具不止正则表达式一个，它们总有两个共通点：难用、功能强大。</p>
+
+<p>会有人说，因为这强大的功能，我们去牺牲一下，努力学习这些工具是很值得的。但当一个强大的工具会因为难用给你造成更多麻烦的时候，我会选择用好用且易懂但稍稍繁琐一点点的工具，毕竟我还知道我在干什么，一切都在我的掌控之中。</p>
+
+<p>linux下很多工具都是这样，功能复杂而不友好，开发者也是用户，用户友好的工具才会是多数人的选择。不然就不会有那么多人选择IDE而不是强大而复杂的VIM了。</p>
+
+
+</div>
+
+<div class="about">
+    <div class="about__devider">*****</div>
+    <div class="about__text">
+        Written by <strong>  王薪富 </strong>
+        on <strong>10 December 2018</strong>
+    </div>
+</div>
+
+
+        </div>
+
+        <script src="/assets/vendor/highlight/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+        
+    </body>
+</html>

@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>无人之境</title>
+    <description>&quot;一些scheme，一些c，一些算法，一些想法&quot;
+</description>
+    <link>http://localhost:4000/</link>
+    <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
+    <pubDate>Mon, 10 Dec 2018 17:15:55 +0800</pubDate>
+    <lastBuildDate>Mon, 10 Dec 2018 17:15:55 +0800</lastBuildDate>
+    <generator>Jekyll v3.8.5</generator>
+    
+      <item>
+        <title>素数筛</title>
+        <description>&lt;pre&gt;&lt;code class=&quot;language-C&quot;&gt;bool prime[10000001];
+void pri(int end){
+  memset(prime,1,sizeof(prime));  // 全为素数
+  prime[0]=prime[1]=0;            // 排除特殊
+  for(int i=2;i*i&amp;lt;=end;i++){
+    if(prime[i]){
+      for(int j=i*i;j&amp;lt;=end;j=i+j)
+        prime[j]=0;
+    }
+  }
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;原理是素数的所有倍数都是合数。这种方法并不是最优解，比如2和3,它们有共同的倍数6,6会被重复操作，排除这种重复操作后的素数筛叫做线性素数筛。&lt;/p&gt;
+</description>
+        <pubDate>Mon, 10 Dec 2018 08:00:01 +0800</pubDate>
+        <link>http://localhost:4000/%E7%AE%97%E6%B3%95/2018/12/10/%E7%B4%A0%E6%95%B0%E7%AD%9B.html</link>
+        <guid isPermaLink="true">http://localhost:4000/%E7%AE%97%E6%B3%95/2018/12/10/%E7%B4%A0%E6%95%B0%E7%AD%9B.html</guid>
+        
+        
+        <category>算法</category>
+        
+      </item>
+    
+      <item>
+        <title>程序员的工具</title>
+        <description>&lt;p&gt;前几天做了一个小程序，可以离线网页及其子页面。在程序中需要一个检索URL的功能，我选择了使用正则表达式，结果这就成了问题的开始。&lt;/p&gt;
+
+&lt;p&gt;正则表达式是怎样的东西？如下：&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;(https?|ftp|file)://[-A-Za-z0-9+&amp;amp;@#/%?=~_|!:,.;]+[-A-Za-z0-9+&amp;amp;@#/%=~_|]&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;不用试图去理解了，这个东西可读性极低，就算是写出这团怪物的人也得花点心思去理解自己过去想要做什么。&lt;/p&gt;
+
+&lt;p&gt;就是因为一开始执着于使用正则表达式，我怎么都无法完美地匹配到自己想要的字符串，总会有一些不想要的奇奇怪怪的字符串溜进来，把程序搞得一团糟。最后我放弃了正则表达式，自己写了个判断字符串的函数，程序一下子就正常运行了。&lt;/p&gt;
+
+&lt;p&gt;当然了，可能会有人说，这完全是因为我不会用正则表达式，在会用的人手里正则表达式工作得很好。在程序刚刚被写出来的时候，的确如此，但几个月甚至几年以后呢？当环境改变，需要修改这个表达式的时候，估计负修改的程序员会感到”A pain in the ass”。因为这东西可读性太低了！程序不是一次性的，是需要维护的。站在这个角度，正则表达式是一个很糟糕的工具。有一句话说得很好：&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Some people, when confronted with a problem, think “I know, I’ll use regular expressions.” Now they have two problems.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;设计糟糕的工具不止正则表达式一个，它们总有两个共通点：难用、功能强大。&lt;/p&gt;
+
+&lt;p&gt;会有人说，因为这强大的功能，我们去牺牲一下，努力学习这些工具是很值得的。但当一个强大的工具会因为难用给你造成更多麻烦的时候，我会选择用好用且易懂但稍稍繁琐一点点的工具，毕竟我还知道我在干什么，一切都在我的掌控之中。&lt;/p&gt;
+
+&lt;p&gt;linux下很多工具都是这样，功能复杂而不友好，开发者也是用户，用户友好的工具才会是多数人的选择。不然就不会有那么多人选择IDE而不是强大而复杂的VIM了。&lt;/p&gt;
+
+</description>
+        <pubDate>Mon, 10 Dec 2018 08:00:01 +0800</pubDate>
+        <link>http://localhost:4000/%E9%9A%8F%E6%83%B3/2018/12/10/Some-Words-About-Tools.html</link>
+        <guid isPermaLink="true">http://localhost:4000/%E9%9A%8F%E6%83%B3/2018/12/10/Some-Words-About-Tools.html</guid>
+        
+        
+        <category>随想</category>
+        
+      </item>
+    
+      <item>
+        <title>Welcome to Jekyll!</title>
+        <description>&lt;p&gt;You’ll find this post in your &lt;code class=&quot;highlighter-rouge&quot;&gt;_posts&lt;/code&gt; directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run &lt;code class=&quot;highlighter-rouge&quot;&gt;jekyll serve&lt;/code&gt;, which launches a web server and auto-regenerates your site when a file is updated.&lt;/p&gt;
+
+&lt;p&gt;To add new posts, simply add a file in the &lt;code class=&quot;highlighter-rouge&quot;&gt;_posts&lt;/code&gt; directory that follows the convention &lt;code class=&quot;highlighter-rouge&quot;&gt;YYYY-MM-DD-name-of-post.ext&lt;/code&gt; and includes the necessary front matter. Take a look at the source for this post to get an idea about how it works.&lt;/p&gt;
+
+&lt;p&gt;Jekyll also offers powerful support for code snippets:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;print_hi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;nb&quot;&gt;puts&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Hi, &lt;/span&gt;&lt;span class=&quot;si&quot;&gt;#{&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;print_hi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'Tom'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#=&amp;gt; prints 'Hi, Tom' to STDOUT.&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;Check out the &lt;a href=&quot;http://jekyllrb.com&quot;&gt;Jekyll docs&lt;/a&gt; for more info on how to get the most out of Jekyll. File all bugs/feature requests at &lt;a href=&quot;https://github.com/jekyll/jekyll&quot;&gt;Jekyll’s GitHub repo&lt;/a&gt;. If you have questions, you can ask them on &lt;a href=&quot;https://github.com/jekyll/jekyll-help&quot;&gt;Jekyll’s dedicated Help repository&lt;/a&gt;.&lt;/p&gt;
+
+</description>
+        <pubDate>Mon, 07 Sep 2015 07:34:01 +0800</pubDate>
+        <link>http://localhost:4000/design/tool/2015/09/07/welcome-to-jekyll.html</link>
+        <guid isPermaLink="true">http://localhost:4000/design/tool/2015/09/07/welcome-to-jekyll.html</guid>
+        
+        
+        <category>design</category>
+        
+        <category>tool</category>
+        
+      </item>
+    
+      <item>
+        <title>Sample post from Daktilo</title>
+        <description>&lt;p&gt;Just a sample post to show some of the &lt;em&gt;typography&lt;/em&gt; elements supported from
+&lt;strong&gt;daktilo&lt;/strong&gt; theme.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;A blockquote:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;We are Hitchhikers in the road of open source knowledge.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&quot;header-2&quot;&gt;Header 2&lt;/h2&gt;
+
+&lt;p&gt;Duis lacinia commodo dui, vel aliquam metus hendrerit eu. Integer et scelerisque dui. Sed nec molestie quam. Donec sit amet nisl a massa commodo ultrices nec quis nunc. Aenean aliquet eu arcu adipiscing dignissim. Nunc dictum elit vitae dolor molestie aliquet.&lt;/p&gt;
+
+&lt;p&gt;Example code:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;&lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;light&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Light&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;switchUp&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;FlipUpCommand&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;light&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;switchDown&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;FlipDownCommand&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;light&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;s&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Switch&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+
+&lt;span class=&quot;nx&quot;&gt;s&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;storeAndExecute&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;switchUp&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;s&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;storeAndExecute&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;switchDown&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;A list:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Praesent nisi elit, bibendum ut consectetur ac, aliquet in nunc&lt;/li&gt;
+  &lt;li&gt;Donec ante est, volutpat in mi et, pulvinar congue dolor.&lt;/li&gt;
+  &lt;li&gt;Quisque ultrices pulvinar sollicitudin.&lt;/li&gt;
+  &lt;li&gt;Duis elementum odio eu euismod suscipit.&lt;/li&gt;
+  &lt;li&gt;Integer enim lorem, interdum sit amet consectetur non, bibendum eget neque.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;A numbered list:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Praesent nisi elit, bibendum ut consectetur ac, aliquet in nunc.&lt;/li&gt;
+  &lt;li&gt;Donec ante est, volutpat in mi et, pulvinar congue dolor.&lt;/li&gt;
+  &lt;li&gt;Quisque ultrices pulvinar sollicitudin.&lt;/li&gt;
+  &lt;li&gt;Duis elementum odio eu euismod suscipit.&lt;/li&gt;
+  &lt;li&gt;Integer enim lorem, interdum sit amet consectetur non, bibendum eget neque.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Definition list:&lt;/p&gt;
+
+&lt;dl&gt;
+  &lt;dt&gt;Curabitur cursus magna eu sem cursus&lt;/dt&gt;
+  &lt;dd&gt;ac ultrices urna pharetra.&lt;/dd&gt;
+  &lt;dd&gt;Duis scelerisque ipsum eu luctus elementum.&lt;/dd&gt;
+  &lt;dt&gt;Pellentesque habitant morbi tristique senectus&lt;/dt&gt;
+  &lt;dd&gt;Curabitur malesuada lacus ac gravida porttitor&lt;/dd&gt;
+  &lt;dd&gt;Duis sodales feugiat lorem et mollis.&lt;/dd&gt;
+&lt;/dl&gt;
+
+&lt;p&gt;Want to suggest something? Please &lt;a href=&quot;https://github.com/kronik3r/daktilo/issues/new&quot;&gt;Send me a request&lt;/a&gt;.&lt;/p&gt;
+</description>
+        <pubDate>Wed, 20 Aug 2014 07:56:45 +0800</pubDate>
+        <link>http://localhost:4000/tool/2014/08/20/sample-post.html</link>
+        <guid isPermaLink="true">http://localhost:4000/tool/2014/08/20/sample-post.html</guid>
+        
+        
+        <category>tool</category>
+        
+      </item>
+    
+  </channel>
+</rss>
