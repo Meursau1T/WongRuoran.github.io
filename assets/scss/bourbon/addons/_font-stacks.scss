@@ -4,14 +4,14 @@
 ///
 /// @type List
 
-$georgia: "Georgia", "Cambria", "Times New Roman", "Times", serif;
-
+// $georgia: "Georgia", "Cambria", "Times New Roman", "Times", serif;
+$georgia: "Source Han Sans CN","noto sans","Microsoft YaHei", serif;
 /// Helvetica font stack.
 ///
 /// @type List
 
-$helvetica: "Helvetica Neue", "Helvetica", "Roboto", "Arial", sans-serif;
-
+//$helvetica: "Helvetica Neue", "Helvetica", "Roboto", "Arial", sans-serif;
+$georgia: "Source Han Sans CN","noto sans","Microsoft YaHei", sans-serif;
 /// Lucida Grande font stack.
 ///
 /// @type List
@@ -28,4 +28,4 @@ $monospace: "Bitstream Vera Sans Mono", "Consolas", "Courier", monospace;
 ///
 /// @type List
 
-$verdana: "Verdana", "Geneva", sans-serif;
+//$verdana: "Verdana", "Geneva", sans-serif;
