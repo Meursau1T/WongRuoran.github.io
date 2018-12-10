@@ -1,19 +1,18 @@
 # Site settings
-title: Daktilo
+title: "无人之境"
 description: >
-  Write an awesome description for your new site here. You can edit this
-  line in _config.yml. It will appear in your document head meta (for
-  Google search results) and in your feed.xml site description.
+  "一些scheme，一些c，一些算法，一些想法"
 
 baseurl: "" # the subpath of your site, e.g. /blog/
-url: "http://hitchhiker.ma" # the base hostname & protocol for your site
+url: "https://wongruoran.github.io" # the base hostname & protocol for your site
 
 author:
-  fullname: Motaquillah Maddane
-  googleplus: https://www.google.com/+MotaquillahMaddane
-  github: kronik3r
-  twitter: electrik_frog
+  fullname: "王薪富"
+  # googleplus: https://www.google.com/+MotaquillahMaddane
+  # github: kronik3r
+  # twitter: electrik_frog
   # disqus: your_disqus_forum_shortname
+  email: wongxf@outlook.com
 
 # google_analytics: 'UA-XXXXXXXX-X'
 
