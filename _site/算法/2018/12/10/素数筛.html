@@ -38,7 +38,7 @@
 <link rel="stylesheet" href="/assets/vendor/normalize-css/normalize.css">
 <link rel="stylesheet" href="/css/main.css">
 
-  <link rel="stylesheet" href="/assets/vendor/highlight/styles/solarized_dark.css">
+  <link rel="stylesheet" href="/assets/vendor/highlight/styles/tomorrow.css">
 
 <link rel="stylesheet" href="/assets/vendor/font-awesome/css/font-awesome.css">
 
@@ -51,8 +51,8 @@
         <a href="/" class="logo">无人之境</a>
 
         <ul class="menu">
-            <li class="menu__entry"><a href="/about">About</a></li>
-            <li class="menu__entry"><a href="/">Blog</a></li>
+            <li class="menu__entry"><a href="/about">关于</a></li>
+            <li class="menu__entry"><a href="/">文章</a></li>
         </ul>
     </div>
 
@@ -63,25 +63,28 @@
     </ul>
 </header>
 
+
             <h1 class="page-title post-title">
     <div class="page-title__text post-title__text">素数筛</div>
     <div class="page-title__subtitle post-title__subtitle"></div>
 </h1>
 
 <div class="content">
-    <pre><code class="language-C">bool prime[10000001];
+    <pre><code class="language-C">bool prime[10000001];  // 建立数组，0为合数，1为素数
 void pri(int end){
-  memset(prime,1,sizeof(prime));  // 全为素数
-  prime[0]=prime[1]=0;            // 排除特殊
-  for(int i=2;i*i&lt;=end;i++){
+  memset(prime,1,sizeof(prime));  // 初始化数组全为素数
+  prime[0]=prime[1]=0;            // 排除0和1两个特殊值
+  for(int i=2;i*i&lt;=end;i++){      // 从2开始数，遇到一个素数，就把它的所有倍数标记为合数
     if(prime[i]){
-      for(int j=i*i;j&lt;=end;j=i+j)
+      for(int j=i*i;j&lt;=end;j=i+j) // 用 j = i*i 更加高效
         prime[j]=0;
     }
   }
 }
 </code></pre>
-<p>原理是素数的所有倍数都是合数。这种方法并不是最优解，比如2和3,它们有共同的倍数6,6会被重复操作，排除这种重复操作后的素数筛叫做线性素数筛。</p>
+<p>原理是素数的所有倍数都是合数。</p>
+
+<p>这种方法适用于已知要判定的数的范围且多次判定的情况，如果判定次数很少，不比普通算法快。</p>
 
 </div>
 
