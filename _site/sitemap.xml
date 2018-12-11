@@ -36,9 +36,24 @@
   
     
     <url>
+      <loc>http://localhost:4000/categories/Linux/</loc>
+      
+        <lastmod>2018-12-11T15:22:11+08:00</lastmod>
+      
+      
+        <changefreq>monthly</changefreq>
+      
+      
+        <priority>0.5</priority>
+      
+    </url>
+    
+  
+    
+    <url>
       <loc>http://localhost:4000/about/</loc>
       
-        <lastmod>2018-12-11T15:16:09+08:00</lastmod>
+        <lastmod>2018-12-11T15:22:11+08:00</lastmod>
       
       
         <changefreq>monthly</changefreq>
@@ -55,7 +70,7 @@
     <url>
       <loc>http://localhost:4000/</loc>
       
-        <lastmod>2018-12-11T15:16:09+08:00</lastmod>
+        <lastmod>2018-12-11T15:22:11+08:00</lastmod>
       
       
         <changefreq>monthly</changefreq>
@@ -71,12 +86,27 @@
     
   
     
+    <url>
+      <loc>http://localhost:4000/categories/scheme/</loc>
+      
+        <lastmod>2018-12-11T15:22:11+08:00</lastmod>
+      
+      
+        <changefreq>monthly</changefreq>
+      
+      
+        <priority>0.5</priority>
+      
+    </url>
+    
+  
+    
   
     
     <url>
       <loc>http://localhost:4000/categories/算法/</loc>
       
-        <lastmod>2018-12-11T15:16:09+08:00</lastmod>
+        <lastmod>2018-12-11T15:22:11+08:00</lastmod>
       
       
         <changefreq>monthly</changefreq>
@@ -91,7 +121,7 @@
     <url>
       <loc>http://localhost:4000/categories/随想/</loc>
       
-        <lastmod>2018-12-11T15:16:09+08:00</lastmod>
+        <lastmod>2018-12-11T15:22:11+08:00</lastmod>
       
       
         <changefreq>monthly</changefreq>
