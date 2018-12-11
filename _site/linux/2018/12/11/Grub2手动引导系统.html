@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title> 用Grub2手动引导系统 —  &raquo;  无人之境</title>
+<meta name="description" content=""一些scheme，一些c，一些算法，一些想法"
+">
+<meta name="keywords" content="">
+<link rel="canonical" href="http://localhost:4000/linux/2018/12/11/Grub2%E6%89%8B%E5%8A%A8%E5%BC%95%E5%AF%BC%E7%B3%BB%E7%BB%9F.html">
+        
+
+
+
+
+<!-- Twitter Cards -->
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="用Grub2手动引导系统" />
+<meta name="twitter:description" content=""一些scheme，一些c，一些算法，一些想法"
+" />
+<meta name="twitter:image" content="http://localhost:4000" />
+
+<!-- Google plus -->
+<meta name="author" content="">
+<link rel="author" href="">
+
+<!-- Open Graph -->
+<meta property="og:locale" content="">
+<meta property="og:type" content="article">
+<meta property="og:title" content="用Grub2手动引导系统">
+<meta property="og:description" content=""一些scheme，一些c，一些算法，一些想法"
+">
+<meta property="og:url" content="http://localhost:4000/linux/2018/12/11/Grub2%E6%89%8B%E5%8A%A8%E5%BC%95%E5%AF%BC%E7%B3%BB%E7%BB%9F.html">
+<meta property="og:site_name" content="无人之境">
+
+        <link href='https://fonts.googleapis.com/css?family=Inconsolata:400,700' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="/assets/vendor/normalize-css/normalize.css">
+<link rel="stylesheet" href="/css/main.css">
+
+  <link rel="stylesheet" href="/assets/vendor/highlight/styles/tomorrow.css">
+
+<link rel="stylesheet" href="/assets/vendor/font-awesome/css/font-awesome.css">
+
+    </head>
+
+    <body>
+        <div class="wrapper">
+            <header class="header">
+    <div class="navigation">
+        <a href="/" class="logo">无人之境</a>
+
+        <ul class="menu">
+            <li class="menu__entry"><a href="/about">关于</a></li>
+            <li class="menu__entry"><a href="/">文章</a></li>
+        </ul>
+    </div>
+
+    <ul class="social-links">
+        
+
+        
+    </ul>
+</header>
+
+
+            <h1 class="page-title post-title">
+    <div class="page-title__text post-title__text">用Grub2手动引导系统</div>
+    <div class="page-title__subtitle post-title__subtitle"></div>
+</h1>
+
+<div class="content">
+    <p>使用Linux总是不可避免地会遇到引导问题，因此学会使用Grub的命令行模式非常重要。下面是用Grub2的命令行模式启动系统的步骤：</p>
+
+<h3 id="1找到你的根分区">1.找到你的根分区</h3>
+
+<p>输入<code class="highlighter-rouge">cat </code>，按TAB，系统会列出所有的分区，如(h0,gpt1)等，利用<code class="highlighter-rouge">ls (hX,gptY)</code>这个命令，一个个尝试每一个分区，最后肯定能找到你的根分区。</p>
+
+<p>如果你的/boot分区是独立的，那么用同样的方法去找到/boot分区。</p>
+
+<p>/boot分区下一般会有grub文件夹，还有几个vmlinuz开头的文件，而/分区则有bin、usr、tmp等文件夹，都很好辨识。</p>
+
+<h3 id="2如果在rescue模式加载相应的模组">2.如果在rescue模式，加载相应的模组</h3>
+
+<p>我们假设根分区是(hdX,gptY)，输入以下命令：</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>set prefix=(hdX,gptY)/boot/grub  
+insmod (hdX,gptY)/boot/grub/linux.mod  
+</code></pre></div></div>
+<p>如果你的/boot分区是独立的，那么从上面的路径中去掉<code class="highlighter-rouge">/boot</code>部分</p>
+
+<h3 id="3选中linux内核和initrd文件">3.选中linux内核和initrd文件</h3>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>set root=(hdX,gptY)
+linuxefi /boot/vmlinuz-4.19.7-1-default root=UUID=20cdc128-d66a-45ab-8033-be3efaa70d2b
+initrdefi /boot/initrd-4.19.7-1-default
+boot
+
+</code></pre></div></div>
+
+<p>如果/boot独立，去掉<code class="highlighter-rouge">/boot</code>部分</p>
+
+<p>有可能你没有linux和initrd这两个命令，取而代之的是linux和initrd，没关系，用那个就对了。</p>
+
+<p>另外一个需要关注的就是第二行中的<code class="highlighter-rouge">root=</code>部分，这一长串字母是通过<code class="highlighter-rouge">cat (hdX,gptY)/etc/fstab</code>得到的。运行这个命令后你会看到类似下面的输出：</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>UUID=20cdc128-d66a-45ab-8033-be3efaa70d2b  /                       btrfs  defaults                      0  0
+UUID=20cdc128-d66a-45ab-8033-be3efaa70d2b  /boot/grub2/x86_64-efi  btrfs  subvol=/@/boot/grub2/x86_64-efi  0  0
+UUID=20cdc128-d66a-45ab-8033-be3efaa70d2b  /boot/grub2/i386-pc     btrfs  subvol=/@/boot/grub2/i386-pc  0  0
+UUID=61D7-34F0                             /boot/efi               vfat   codepage=936                  0  0
+UUID=20cdc128-d66a-45ab-8033-be3efaa70d2b  /.snapshots             btrfs  subvol=/@/.snapshots          0  0
+UUID=20cdc128-d66a-45ab-8033-be3efaa70d2b  /var                    btrfs  subvol=/@/var                 0  0
+UUID=20cdc128-d66a-45ab-8033-be3efaa70d2b  /usr/local              btrfs  subvol=/@/usr/local           0  0
+UUID=20cdc128-d66a-45ab-8033-be3efaa70d2b  /tmp                    btrfs  subvol=/@/tmp                 0  0
+UUID=20cdc128-d66a-45ab-8033-be3efaa70d2b  /srv                    btrfs  subvol=/@/srv                 0  0
+UUID=20cdc128-d66a-45ab-8033-be3efaa70d2b  /root                   btrfs  subvol=/@/root                0  0
+UUID=20cdc128-d66a-45ab-8033-be3efaa70d2b  /opt                    btrfs  subvol=/@/opt                 0  0
+UUID=c437c868-4b9d-4513-b5a2-24595d26a478  /home                   xfs    defaults                      0  0
+UUID=c3f9cd03-4f1d-4de8-a44d-c621401b87b1  swap                    swap   defaults                      0  0
+
+</code></pre></div></div>
+
+<p>根分区前面的字符串就是我们要的。如果是<code class="highlighter-rouge">/dev/sdXX</code>这一类的字符串，处理方法是一样的。</p>
+
+<p>输入<code class="highlighter-rouge">boot</code>命令并回车后，就可以启动了。启动后赶快找工具修复grub吧。</p>
+
+<h3 id="如果你的运气很差">如果你的运气很差……</h3>
+
+<p>有时候事情不会像上面一样顺利，<strong>比如我</strong>，在linux那一步被提示<code class="highlighter-rouge">vmlinuz can't be read</code>，原因很简单，内核坏了，目录下一般有旧版本的内核，拿来试试，说不定可以用。</p>
+
+<p>然而，运气这个东西，总是可以更差，<strong>比如我</strong>，所有的内核都坏掉了，这可如何是好呢？我会放到另一篇文章里面讲。</p>
+
+</div>
+
+<div class="about">
+    <div class="about__devider">*****</div>
+    <div class="about__text">
+      <strong>  王薪富 </strong>
+      于
+      <strong>2018 12 11</strong>
+      书
+    </div>
+</div>
+
+
+
+        </div>
+
+        <script src="/assets/vendor/highlight/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+        
+    </body>
+</html>
