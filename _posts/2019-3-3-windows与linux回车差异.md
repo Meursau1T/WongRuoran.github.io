@@ -1,7 +1,6 @@
 ---
 layout: post
 title:  "windows与linux下回车的差异"
-date:   2019-03-03 23:46:01
 categories: [Linux]
 ---
 windows下，回车是\r\n,对应ascii码为1310。
