@@ -25,10 +25,10 @@ categories: [算法]
 
     3. 重复操作2，直到转到左上角顶点右旋90度的位置，用 _tmp_ 赋值给此点
 
-    4.选择下一个点，重复1-3操作，直到遍历完整条边（不包括边的右端点）
+    4. 选择下一个点，重复1-3操作，直到遍历完整条边（不包括边的右端点）
 
 
-```
+~~~
 class Solution {
 public:
     void r_in(vector<vector<int>>& matrix,int n,int size,int i = 0){
@@ -57,4 +57,4 @@ public:
         cout << endl;
     }
 };
-```
+~~~
