@@ -7,12 +7,15 @@ permalink: /about/
 
 
 
-███╗&emsp;&emsp;&emsp;███╗███████╗██╗&emsp;&emsp;&emsp;██╗██████╗&emsp;███████╗&emsp;█████╗&emsp;██╗&emsp;&emsp;&emsp;&emsp;&emsp;████████╗
-████╗&emsp;████║██╔════╝██║&emsp;&emsp;&emsp;██║██╔══██╗██╔════╝██╔══██╗██║&emsp;&emsp;&emsp;&emsp;&emsp;╚══██╔══╝
-██╔████╔██║█████╗&emsp;&emsp;██║&emsp;&emsp;&emsp;██║██████╔╝███████╗███████║██║&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;██║   
-██║╚██╔╝██║██╔══╝&emsp;&emsp;██║&emsp;&emsp;&emsp;██║██╔══██╗╚════██║██╔══██║██║&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;██║   
-██║&emsp;╚═╝&emsp;██║███████╗╚██████╔╝██║&emsp;&emsp;██║███████║██║&emsp;&emsp;██║███████╗&emsp;&emsp;&emsp;██║   
-╚═╝&emsp;&emsp;&emsp;&emsp;&emsp;╚═╝╚══════╝&emsp;╚═════╝&emsp;╚═╝&emsp;&emsp;╚═╝╚══════╝╚═╝&emsp;&emsp;╚═╝╚══════╝&emsp;&emsp;&emsp;╚═╝   
+
+███╗&ensp;&ensp;&ensp;███╗███████╗██╗&ensp;&ensp;&ensp;██╗██████╗&ensp;███████╗&ensp;█████╗&ensp;██╗&ensp;&ensp;&ensp;&ensp;&ensp;████████╗
+████╗&ensp;████║██╔════╝██║&ensp;&ensp;&ensp;██║██╔══██╗██╔════╝██╔══██╗██║&ensp;&ensp;&ensp;&ensp;&ensp;╚══██╔══╝
+██╔████╔██║█████╗&ensp;&ensp;██║&ensp;&ensp;&ensp;██║██████╔╝███████╗███████║██║&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;██║&ensp;&ensp;&ensp;
+██║╚██╔╝██║██╔══╝&ensp;&ensp;██║&ensp;&ensp;&ensp;██║██╔══██╗╚════██║██╔══██║██║&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;██║&ensp;&ensp;&ensp;
+██║&ensp;╚═╝&ensp;██║███████╗╚██████╔╝██║&ensp;&ensp;██║███████║██║&ensp;&ensp;██║███████╗&ensp;&ensp;&ensp;██║&ensp;&ensp;&ensp;
+╚═╝&ensp;&ensp;&ensp;&ensp;&ensp;╚═╝╚══════╝&ensp;╚═════╝&ensp;╚═╝&ensp;&ensp;╚═╝╚══════╝╚═╝&ensp;&ensp;╚═╝╚══════╝&ensp;&ensp;&ensp;╚═╝&ensp;&ensp; 
+                                                                     
+
                                                                      
 
 
