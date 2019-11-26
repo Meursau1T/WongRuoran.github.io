@@ -25,4 +25,4 @@ exclude: ["README.md", "README.html"]
 
 # Build settings
 highlighter: null
-markdown: default
+markdown: markdown
