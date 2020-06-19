@@ -1,5 +1,5 @@
-- slug: 随想
-  name: 随想
+- slug: 杂项
+  name: 杂项
 
 - slug: 算法
   name: 算法
@@ -12,3 +12,6 @@
 
 - slug: C++
   name: C++
+
+- slug: C#
+  name: C#
